@@ -239,11 +239,12 @@ namespace System.Media {
 				try {
 					if (adata == null)
 						adata = new WavData (mstream);
-					if (adev == null)
-						adev = AudioDevice.CreateDevice (null);
+					//if (adev == null)
+					adev = AudioDevice.CreateDevice (null);
 					if (adata != null) {
 						adata.Setup (adev);
 						adata.Play (adev);
+						adev = null;
 					}
 				} catch {
 				}
